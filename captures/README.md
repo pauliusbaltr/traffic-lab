@@ -1,0 +1,8 @@
+# Capture sources and interpretation
+
+- guided-http.pcap: synthetic teaching trace generated offline for DNS, TCP, HTTP GET, fictional POST and 200/404 responses. Documentation IPs 192.0.2.10 and 192.0.2.20. It is not a real capture or a test of VirtualBox.
+- guided-tls.pcap: synthetic TLS 1.3 teaching trace that continues the same portal.training.test story over port 443. It contains the DNS lookup, the TCP handshake, a ClientHello whose SNI carries the hostname, a TLS 1.3 ServerHello and opaque Application Data. Use it to see that SNI can corroborate a DNS name while the HTTP path, method and body stay encrypted. It is synthetic, not a real connection you performed.
+- case-study.pcap: a separate, independent synthetic case using a different client, server and documentation block (198.51.100.0/24) from the guided traces. It is the subject of the independent investigation in section 5: open it and work out for yourself which names are queried and what application evidence each one does or does not have. Do not import findings from the other files, and do not assume it contains every feature of guided-http.pcap.
+- tls13-rfc8446.pcap: unmodified Wireshark project test fixture for TLS 1.3, kept as an optional contrast where no SNI is present. Analyse metadata without decryption. It is unrelated to the synthetic traces and is not evidence of a connection you performed.
+
+Read capture-manifest.json for source URL, pinned upstream commit, hash and retrieval date. The external fixture comes from the Wireshark source tree; retain WIRESHARK-COPYING.txt and THIRD-PARTY-NOTICE.md when redistributing this bundle. No session-key file is supplied. Never contact capture addresses. Runtime internet access is not required to analyse these files.
